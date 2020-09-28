@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class App {
-    public static String[] words;
+    public static String[] words = new String[550];
 
     public static void main(String[] args) throws FileNotFoundException {
-        f0(); //TODO: handle null pointer expection
+        f0(); 
         f1();
         f2();
         f3();
@@ -84,16 +84,20 @@ public class App {
             System.out.println("An error occurred.");
             e.printStackTrace();
           }
-          for (int i = 0; i < words.length; i++) {
-              String wrd = "";
-              
-              wrd = wrd.substring(0,1).toUpperCase() + wrd.substring(1).toLowerCase();
-              try {
-                  FileWriter wrtr = new FileWriter("masolat.txt");
-                  wrtr.write(wrd);
+         
+              try { 
+                FileWriter wrtr = new FileWriter("masolat.txt");
+                for (int i = 0; i < words.length; i++) {
+                String wrd = "";
+                
+                wrd = wrd.substring(0,1).toUpperCase() + wrd.substring(1).toLowerCase();
+                 
+                  wrtr.write(wrd);}
+                wrtr.close();
               } catch (Exception e){}
           }
+         
     }
 
 
-}
+
