@@ -1,15 +1,18 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class App {
     public static String[] words;
 
     public static void main(String[] args) throws FileNotFoundException {
-        f0();
+        f0(); //TODO: handle null pointer expection
         f1();
         f2();
         f3();
+        f5();
     }
 
     public static void f0() throws FileNotFoundException {
@@ -66,6 +69,30 @@ public class App {
             }
             i++;
         }
+        if(a){
+            System.out.println("Egyik szó sem található meg");
+        }
+    }
+
+
+    public static void f5(){
+        try {
+            File f = new File("masolat.txt");
+            f.createNewFile();
+            
+          } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+          }
+          for (int i = 0; i < words.length; i++) {
+              String wrd = "";
+              
+              wrd = wrd.substring(0,1).toUpperCase() + wrd.substring(1).toLowerCase();
+              try {
+                  FileWriter wrtr = new FileWriter("masolat.txt");
+                  wrtr.write(wrd);
+              } catch (Exception e){}
+          }
     }
 
 
