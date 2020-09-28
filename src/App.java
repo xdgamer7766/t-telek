@@ -6,6 +6,7 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         f0();
+        f1();
     }
 
 
@@ -18,6 +19,19 @@ public class App {
             i++;
         }
         scr.close();  
+    }
+
+
+    public static void f1(){
+        String frstwrd = words[1];
+        int i=0;
+        char onechar;
+        int ascii=0;
+        while (i<frstwrd.length()){
+            onechar = frstwrd.charAt(i);
+            ascii =ascii + (int) onechar;
+        }
+        System.out.println(ascii);
     }
 
 
